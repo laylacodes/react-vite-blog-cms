@@ -1,12 +1,17 @@
 # Self-Hosted Blog CMS for React + Vite
 
-Add a `/admin/studio` blog CMS to your existing **React + Vite** site. Write posts
-in a rich text editor, upload images/videos, and **publish straight to your own
-GitHub repo** as Markdown/HTML files. Your host rebuilds and the post goes live.
+I built this to add a blog CMS to my own React + Vite site without handing my
+content to a third-party platform — then packaged it up so you can drop it into
+yours. :-)
 
-**No database. No third-party CMS. No monthly bill.** Your content is just files
-in your repository, and the only backend is a handful of free Supabase Edge
+It gives you a `/admin/studio` route where you write posts in a rich text editor,
+upload images and video, and publish straight to your own GitHub repo as
+Markdown/HTML. Your host rebuilds and the post goes live.
+
+No database, no third-party CMS, no monthly bill. Your content is just files in
+your repository, and the only backend is a handful of free Supabase Edge
 Functions that commit to GitHub on your behalf.
+
 
 ---
 
@@ -49,9 +54,10 @@ Functions that commit to GitHub on your behalf.
 
 ## Screenshots
 
-| Studio editor | Rendered post |
+| Rendered post | Studio editor |
 | --- | --- |
-| ![Blog Studio editor](docs/studio.png) | ![Rendered blog post](docs/post.png) |
+| <img alt="Rendered blog post" src="https://github.com/user-attachments/assets/5c757528-19e1-4d71-9840-a7245f25ffb7" /> | <img alt="Blog Studio editor" src="https://github.com/user-attachments/assets/835e2949-7e33-48a4-bfef-e31a94d0f912" /> |
+
 
 > The studio inherits your site's Tailwind theme tokens, so it automatically matches your design.
 
@@ -135,12 +141,13 @@ component files (including `Toaster` — mount it once in your root, e.g. `App.t
 Nothing here is locked to shadcn internals: if you'd rather supply these ten
 components yourself, any equivalents with the same import paths work.
 
-> **Heads-up:** This template was distilled from a personal site. The original
-> `publish-blog` was the only function named in the brief, but the studio also
-> needs **`auth-admin`** (login) and **`delete-blog`** (deletion) to function, so
-> both are included. The following site-specific pieces were intentionally
-> **excluded**: confetti hooks, post-likes (table + function + UI), newsletter
-> signup, a table-of-contents component, per-tag color maps, FreeSQL embed
+> **Heads-up:** I carved this template out of my own personal site, so a couple
+> of notes on scope. The studio relies on three Edge Functions — `publish-blog`
+> to publish, `auth-admin` for login, and `delete-blog` for deletion -- and you
+> need all three for it to work, so they're all here. I also left out the pieces
+> that were specific to my site and wouldn't translate to a generic template:
+> confetti effects, post likes (the table, function, and UI), the newsletter
+> signup, a table-of-contents component, my per-tag color map, FreeSQL embed
 > tokens/iframes, and the generated Supabase `types.ts` (the client no longer
 > depends on it).
 
