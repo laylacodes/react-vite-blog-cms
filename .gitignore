@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Local env — never commit real keys/secrets (use .env.example as the template)
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+.DS_Store
+*.local
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/
