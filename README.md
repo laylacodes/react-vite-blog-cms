@@ -53,8 +53,7 @@ Functions that commit to GitHub on your behalf.
 | --- | --- |
 | ![Blog Studio editor](docs/studio.png) | ![Rendered blog post](docs/post.png) |
 
-> Swap in your own images (drop them in a `docs/` folder). The studio inherits
-> your site's Tailwind theme tokens, so it automatically matches your design.
+> The studio inherits your site's Tailwind theme tokens, so it automatically matches your design.
 
 ---
 
