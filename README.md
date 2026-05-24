@@ -114,6 +114,7 @@ you can copy them straight into your own `src/` and `supabase/`.
 | File | Purpose |
 | --- | --- |
 | `src/pages/BlogPost.tsx` | Renders a single post (HTML/Markdown auto-detect + sanitize). Drop in your own `<Header>`/`<Footer>` where marked. |
+| `src/pages/BlogIndex.tsx` | **Optional example.** A minimal list of all posts via `getAllPosts()` — a starting point for your blog landing page. Restyle or replace it, and wire it at `/blog`, `/writing`, etc. |
 | `src/content/posts/hello-world.md` | Demo post so you can verify rendering immediately. Delete after your first real post. |
 
 <h3 id="what-youll-add">What you'll add</h3>
@@ -199,16 +200,22 @@ routes must be registered in `RESERVED_ROUTES` (see step 5b).
 ```tsx
 import BlogStudio from "@/components/cms/BlogStudio";
 import BlogPost from "@/pages/BlogPost";
+import BlogIndex from "@/pages/BlogIndex"; // optional — the posts-listing example
 
 <Routes>
   {/* your existing routes... */}
   <Route path="/admin/studio" element={<BlogStudio />} />
+  <Route path="/blog" element={<BlogIndex />} /> {/* optional listing page */}
 
   {/* dynamic post route — keep this near the end */}
   <Route path="/:slug" element={<BlogPost />} />
   <Route path="*" element={<NotFound />} />
 </Routes>
 ```
+
+> If you mount the listing at a top-level path like `/blog`, that's a real route
+> so it takes precedence over `/:slug` automatically — no need to add it to
+> `RESERVED_ROUTES` (that set only matters for paths you *don't* register).
 
 **5b. Reserve your non-post routes.** `src/lib/posts.ts` ships with
 `RESERVED_ROUTES = new Set(["", "404"])`. Add every other top-level path your site
